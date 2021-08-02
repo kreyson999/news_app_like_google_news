@@ -10,13 +10,17 @@ class NewsWidget extends StatelessWidget {
   const NewsWidget({Key? key, required this.news}) : super(key: key);
 
   String countTime(String dateTime) {
-    String finalDate = "Error";
-    DateTime parsedDateTime = DateTime.parse(dateTime).toLocal();
-    DateTime nowDateTime = DateTime.now().toLocal();
+    String finalDate;
+    DateTime parsedDateTime = DateTime.parse(dateTime);
+    DateTime nowDateTime = DateTime.now();
 
-    finalDate = (nowDateTime.hour - parsedDateTime.hour).toString();
+    if (nowDateTime.difference(parsedDateTime).inHours < 24) {
+      finalDate = nowDateTime.difference(parsedDateTime).inHours.toString() + "h";
+    } else {
+      finalDate = nowDateTime.difference(parsedDateTime).inDays.toString() + "d";
+    }
 
-    return finalDate + "h";
+    return finalDate;
   }
 
   @override
