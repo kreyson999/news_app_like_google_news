@@ -1,6 +1,6 @@
 # google_news
 
-A new Flutter project.
+![google_news](https://github.com/kreyson999/news_app_like_google_news/blob/master/google%20news.png?raw=true)
 
 ## Getting Started
 
